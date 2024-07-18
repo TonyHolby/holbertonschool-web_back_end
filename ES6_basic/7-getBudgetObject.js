@@ -4,14 +4,14 @@
  * @param {string} income 
  * @param {string} gdp 
  * @param {string} capita 
- * @returns 
+ * @returns the object budget.
  */
 export default function getBudgetObject(income, gdp, capita) {
-    const budget = {
-        income,
-        gdp,
-        capita,
-    };
+  const budget = {
+    income,
+    gdp,
+    capita,
+  };
 
-    return budget;
+  return budget;
 }
