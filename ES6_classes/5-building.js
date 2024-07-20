@@ -1,10 +1,8 @@
+// Building.js
 export default class Building {
   constructor(sqft) {
     if (new.target === Building) {
       throw new TypeError('The method named evacuationWarningMessage should be implemented first');
-    }
-    if (typeof sqft !== 'number') {
-      throw new TypeError('sqft must be a number');
     }
     this._sqft = sqft;
   }
@@ -14,6 +12,15 @@ export default class Building {
   }
 
   evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    if (this.constructor === Building) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
+    return `${this._sqft}`;
+  }
+}
+
+export class MyClass extends Building {
+  evacuationWarningMessage() {
+    return `${this._sqft}`;
   }
 }
