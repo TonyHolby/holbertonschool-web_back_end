@@ -3,7 +3,18 @@ function cleanSet(set, startString) {
     return '';
   }
 
-  return Array.from(set).filter((value) => value.startsWith(startString)).map((value) => value.slice(startString.length)).join('-');
+  let str = '';
+
+  for (const value of set) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      if (str.length > 0) {
+        str += '-';
+      }
+      str += value.slice(startString.length);
+    }
+  }
+
+  return str;
 }
 
 export default cleanSet;
