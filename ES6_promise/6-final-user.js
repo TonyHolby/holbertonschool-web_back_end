@@ -6,11 +6,11 @@ export function handleProfileSignup(firstName, lastName, fileName) {
   const uploadPromise = uploadPhoto(fileName);
 
   return Promise.allSettled([signUpPromise, uploadPromise])
-    .then((results) => results.map((result) => {
-      if (result.status === 'fulfilled') {
-        return { status: result.status, value: result.value };
+    .then((results) => results.map((promisesettled) => {
+      if (promisesettled.status === 'fulfilled') {
+        return { status: promisesettled.status, value: promisesettled.value };
       }
-      return { status: result.status, reason: result.reason.toString() };
+      return { status: promisesettled.status, value: promisesettled.reason };
     }));
 }
 
