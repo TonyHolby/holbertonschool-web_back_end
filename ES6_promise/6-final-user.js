@@ -7,13 +7,17 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
   const promisesettled = await Promise.allSettled([signUpPromise, uploadPhotoPromise]);
 
-  return promisesettled.map((promises) => {
-    const result = { status: promises.status };
-    if (promises.status === 'fulfilled') {
-      result.value = promises.value;
-    } else {
-      result.value = promises.reason;
+  return promisesettled.map((promiseResult) => {
+    if (promiseResult === 'fulfilled') {
+      return {
+        status: promiseResult.status,
+        value: promiseResult.value,
+      };
     }
-    return result;
+
+    return {
+      status: promiseResult.status,
+      value: promiseResult.reason,
+    };
   });
 }
