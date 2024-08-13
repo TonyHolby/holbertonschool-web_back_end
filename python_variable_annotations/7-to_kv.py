@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    Defines a method named sum_mixed_list that takes a string k
+    Defines a method named to_kv that takes a string k
     and an int or float v as arguments and returns a tuple.
 """
 from typing import Union, Tuple
