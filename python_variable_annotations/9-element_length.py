@@ -3,9 +3,9 @@
     Defines a function named element_length that takes a list of
     iterable elements and returns a list of tuples.
 """
-from typing import List, Tuple, Iterable
+from typing import List, Tuple, Iterable, Sequence
 
 
-def element_length(lst: Iterable[str]) -> List[Tuple[str, int]]:
+def element_length(lst: Iterable[str]) -> List[Tuple[Sequence, int]]:
     """ Returns the values with the appropriate types. """
     return [(i, len(i)) for i in lst]
