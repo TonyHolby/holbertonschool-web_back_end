@@ -5,8 +5,9 @@
     wait_random function imported from 0-basic_async_syntax.py.
 """
 import asyncio
-from 0-basic_async_syntax import wait_random
 from typing import List
+wait_random = __import__("0-basic_async_syntax").wait_random
+
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
@@ -21,13 +22,13 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
             wait_n should return the list of all the delays (float values).
     """
     list_of_delays = []
-    delay_stored = []
+    task_in_progress = []
 
     for i in range(n):
         delay_created = asyncio.create_task(wait_random(max_delay))
-        delay_stored.append(delay_created)
+        task_in_progress.append(delay_created)
 
-    for res in asyncio.as_completed(delay_stored):
+    for res in asyncio.as_completed(task_in_progress):
         delay = await res
         list_of_delays.append(delay)
 
