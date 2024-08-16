@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    Defines an asynchronous routine named measure_time that measure the total
+    Defines a function named measure_time that measure the total
     time for wait_n(n, max_delay) imported from 1-concurrent_coroutines.py
     and returns the result of total_time / n (float value).
 """
