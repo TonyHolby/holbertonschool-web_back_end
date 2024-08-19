@@ -5,6 +5,8 @@
     and corresponding to the range of indexes to return in a list for those
     particular pagination parameters.
 """
+
+
 def index_range(page, page_size):
     """
         Takes two integer arguments : page and page_size.
