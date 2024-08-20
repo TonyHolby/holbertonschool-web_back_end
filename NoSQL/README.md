@@ -1,0 +1,1 @@
+The readme file of the directory NoSQL.
