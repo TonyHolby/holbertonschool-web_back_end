@@ -1,0 +1,4 @@
+#!/bin/bash
+// A script that inserts a document (with one attribute name
+// with value "Holberton school") in the collection school.
+db.school.insertOne({"name" : "Holberton school"})
