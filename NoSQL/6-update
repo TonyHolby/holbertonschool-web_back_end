@@ -1,8 +1,6 @@
 #!/bin/bash
 // A script that adds a new attribute to a document in the collection school.
-var bulk = db.school.initializeOrderedBulkOp();
-bulk.find({"name": "Holberton school"}).update({
-    $set: {"address": "972 Mission street"}
-});
-
-bulk.execute();
+db.school.update(
+    {"name": "Holberton school"},
+    {$set: {"address": "972 Mission street"}}
+)
