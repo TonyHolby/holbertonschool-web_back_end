@@ -6,7 +6,9 @@
 from pymongo import MongoClient
 
 
-def nginx_stats():
+if __name__ == "__main__":
+
+
     """
         - Counts the number of documents in this collection.
         - Displays the number of logs.
@@ -33,7 +35,3 @@ def nginx_stats():
         {"method": "GET", "path": "/status"}
         )
     print(f"{status_count} status check")
-
-
-if __name__ == "__main__":
-    nginx_stats()
