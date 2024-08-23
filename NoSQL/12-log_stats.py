@@ -7,8 +7,6 @@ from pymongo import MongoClient
 
 
 if __name__ == "__main__":
-
-
     """
         - Counts the number of documents in this collection.
         - Displays the number of logs.
