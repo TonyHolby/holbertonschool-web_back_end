@@ -12,7 +12,13 @@ name_input.on('line', (input) => {
     name_input.close();
 });
 
-name_input.on('close', () => {
-    console.log('This important software is now closing');
-    process.exit(0);
-});
+if (process.stdin.isTTY) {
+    name_input.on('close', () => {
+        process.exit(0);
+    });
+} else {
+    name_input.on('close', () => {
+        console.log('This important software is now closing');
+        process.exit(0);
+    });
+}
