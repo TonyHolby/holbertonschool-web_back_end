@@ -23,25 +23,27 @@ function countStudents(path) {
         if (line) {
           const student = line.split(',');
 
-          const firstName = student[0];
-          const field = student[3];
+          const firstName = student[0].trim();
+          const field = student[3].trim();
 
-          if (!fields[field]) {
-            fields[field] = [];
+          if (firstName && field) {
+            if (!fields[field]) {
+              fields[field] = [];
+            }
+
+            fields[field].push(firstName);
           }
-
-          fields[field].push(firstName);
         }
       }
 
       const numberOfStudents = Object.values(fields).reduce((acc, curr) => acc + curr.length, 0);
-      console.log(`Number of students: ${numberOfStudents}`);
-
+      
+      let output = `Number of students: ${numberOfStudents}\n`;
       for (const [field, students] of Object.entries(fields)) {
-        console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+        output += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
       }
 
-      resolve();
+      resolve(output.trim());
     });
   });
 }
